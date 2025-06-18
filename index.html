@@ -1,0 +1,137 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fox Image Generator</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aliceblue;
+    }
+
+    .container {
+      border: 1px solid black;
+      height: 500px;
+      width: 500px;
+      text-align: center;
+      background-color: rgb(207, 106, 173);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border-color: rgb(207, 106, 173);;
+    }
+
+    .loading-box {
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+      width: 200px;
+      cursor: pointer;
+      color: black;
+      height: 1000px;
+    }
+
+    img {
+      height: 150px;
+      margin-top: 10px;
+    }
+
+    #foxName {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    #btn2{
+        height: 50px;
+        background-color: rgb(129, 222, 222);
+        width: 100px;
+        border-radius: 10px;
+        padding: 10px;
+        border-color:rgb(129, 222, 222); 
+        font-size: medium;
+        font-weight: lighter;
+        height: 70px;
+        font-weight: 20px;
+    }
+
+    #btn2:hover{
+      background-color: rgb(152, 91, 210);
+      border-color:rgb(168, 109, 222); ;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fox Image Generator</h1>
+
+    <div class="loading-box" id="loadingBox">
+      <h2 id="foxName">Loading...</h2>
+      <img src="" id="foxImg" alt="Fox Image">
+    </div>
+
+    <div class="btn">
+      <button id="btn2">Type</button>
+    </div>
+  </div>
+  <script>
+    const nameElement = document.getElementById("foxName");
+    const imageElement = document.getElementById("foxImg");
+    const typeElement = document.getElementById("btn2");
+
+    function fetchFoxImage(){
+      fetch(`https://randomfox.ca/floof/?ref=apilist`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          nameElement.textContent = "Cute Fox!".toUpperCase();
+          imageElement.src = data.image;
+          typeElement.textContent = "Get Another Fox";
+        })
+        .catch(error => {
+          console.log("Error fetching data:", error);
+          nameElement.textContent = "Error loading fox.";
+        });
+    }
+
+    
+    typeElement.addEventListener("click", fetchFoxImage);
+      
+    fetchFoxImage();
+
+    
+  </script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
