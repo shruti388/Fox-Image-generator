@@ -6,7 +6,7 @@ and very wholesome experience using API.
 🚀 Tech stack used: HTML , CSS , JAVASCRIPT.
 <hr>
 
-Liscence: MIT. 
+License: MIT. 
 <hr>
 
  Visit my website using this link: https://shruti388.github.io/Fox-Image-generator/
